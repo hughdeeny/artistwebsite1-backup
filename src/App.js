@@ -1,5 +1,4 @@
 import './App.css';
-import { useEffect } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { siteContent } from './hughdeeny2';
 
@@ -29,27 +28,6 @@ function getYouTubeId(value) {
   } catch {
     return null;
   }
-}
-
-function MailingListPage() {
-  useEffect(() => {
-    const existingScript = document.getElementById('mcjs');
-    if (existingScript) {
-      return undefined;
-    }
-
-    const script = document.createElement('script');
-    script.id = 'mcjs';
-    script.async = true;
-    script.src = 'https://chimpstatic.com/mcjs-connected/js/users/cf4a7b9b9415e23f68938af3a/b926248415e089300138a4a27.js';
-    document.head.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
-  }, []);
-
-  return <section className="content-page" />;
 }
 
 function App() {
@@ -206,7 +184,9 @@ function App() {
             />
             <Route
               path="/mailing-list"
-              element={<MailingListPage />}
+              element={
+                <section className="content-page" />
+              }
             />
           </Routes>
         </main>
