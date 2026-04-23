@@ -187,9 +187,6 @@ function App() {
               element={
                 <section className="content-page">
                   <h2 className="page-title">Mailing List</h2>
-                  <a className="action-button cta-link" href={siteContent.mailingListUrl} target="_blank" rel="noreferrer">
-                    Join the Mailing List
-                  </a>
                   <form className="contact-form" action="/#" method="post">
                     <label htmlFor="newsletter-email">Email*</label>
                     <input id="newsletter-email" name="newsletterEmail" type="email" required />

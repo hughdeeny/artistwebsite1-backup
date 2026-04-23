@@ -253,14 +253,6 @@
   background: #171717;
 }
 
-.cta-link {
-  margin: 0 0 1rem;
-}
-
-.cta-link:hover {
-  background: #1e1e1e;
-}
-
 .tour-list {
   width: min(920px, 96vw);
   margin: 0;

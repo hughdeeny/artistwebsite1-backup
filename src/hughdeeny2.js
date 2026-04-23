@@ -13,7 +13,6 @@ export const siteContent = {
   homeHeroAlt: 'Artist promo photo',
   musicCoverImageUrl: '/images/Echoes from the fallout.png',
   musicCoverAlt: 'Echoes From The Fallout artwork',
-  mailingListUrl: 'http://eepurl.com/i8ckDw',
   tourStatusText: 'No upcoming events.',
   tourEvents: [],
   socials: [
