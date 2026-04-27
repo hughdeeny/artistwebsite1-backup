@@ -153,6 +153,9 @@ function App() {
                 <section className="hero-page">
                   <h2 className="visually-hidden">Official Website of Hugh Deeny</h2>
                   <img className="hero-image" src={siteContent.homeHeroImageUrl} alt={siteContent.homeHeroAlt} />
+                  <p className="home-intro">
+                    Official website of Hugh Deeny. Explore music, videos, tour updates, and artist links.
+                  </p>
                 </section>
               }
             />
@@ -161,7 +164,7 @@ function App() {
               element={
                 <section className="content-page">
                   <h2 className="page-title">About</h2>
-                  <p>Hugh Deeny is an artist, producer, and performer.</p>
+                  <p>Hugh Deeny is an Adelaide based artist and performer.</p>
                 </section>
               }
             />

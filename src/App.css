@@ -102,6 +102,14 @@
   border: 1px solid #2a2a2a;
 }
 
+.home-intro {
+  width: min(760px, 94vw);
+  margin: 1rem 0 0;
+  color: #d6d6d6;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
 .album-image {
   width: min(320px, 92vw);
   border: 1px solid #2a2a2a;
