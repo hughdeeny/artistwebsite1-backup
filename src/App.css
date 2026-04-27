@@ -214,45 +214,6 @@
   transform: translateY(-1px);
 }
 
-.contact-form {
-  width: min(460px, 92vw);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.contact-form label {
-  font-size: 0.95rem;
-}
-
-.contact-form input {
-  background: transparent;
-  border: 1px solid #484848;
-  color: #f3f3f3;
-  padding: 0.65rem 0.7rem;
-  font: inherit;
-}
-
-.contact-form input:focus {
-  outline: 1px solid #d6d6d6;
-  border-color: #d6d6d6;
-}
-
-.contact-form button {
-  margin-top: 0.35rem;
-  align-self: flex-start;
-  background: transparent;
-  border: 1px solid #8a8a8a;
-  color: #f3f3f3;
-  padding: 0.6rem 1.1rem;
-  font: inherit;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  background: #171717;
-}
-
 .tour-list {
   width: min(920px, 96vw);
   margin: 0;

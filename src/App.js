@@ -7,7 +7,7 @@ const navItems = [
   { label: 'Music', to: '/music' },
   { label: 'Videos', to: '/videos' },
   { label: 'Tour', to: '/tour' },
-  { label: 'Mailing List', to: '/mailing-list' },
+  { label: 'About', to: '/about' },
 ];
 
 function getYouTubeId(value) {
@@ -81,6 +81,15 @@ function App() {
               element={
                 <section className="hero-page">
                   <img className="hero-image" src={siteContent.homeHeroImageUrl} alt={siteContent.homeHeroAlt} />
+                </section>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <section className="content-page">
+                  <h2 className="page-title">About</h2>
+                  <p>Hugh Deeny is an artist, producer, and performer.</p>
                 </section>
               }
             />
@@ -180,12 +189,6 @@ function App() {
                     <h3>{siteContent.tourStatusText}</h3>
                   )}
                 </section>
-              }
-            />
-            <Route
-              path="/mailing-list"
-              element={
-                <section className="content-page" />
               }
             />
           </Routes>
