@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { siteContent } from './hughdeeny2';
 
 const navItems = [
@@ -9,6 +10,75 @@ const navItems = [
   { label: 'Tour', to: '/tour' },
   { label: 'About', to: '/about' },
 ];
+
+const siteUrl = 'https://hughdeeny.com';
+const defaultImageUrl = `${siteUrl}/favicon.png`;
+
+const seoByPath = {
+  '/': {
+    title: 'Hugh Deeny | Official Website',
+    description: 'Official website of Hugh Deeny featuring music, videos, tour updates, and artist links.',
+  },
+  '/about': {
+    title: 'About | Hugh Deeny',
+    description: 'Learn more about Hugh Deeny, artist, producer, and performer.',
+  },
+  '/music': {
+    title: 'Music | Hugh Deeny',
+    description: 'Stream Hugh Deeny music and latest releases on Spotify.',
+  },
+  '/videos': {
+    title: 'Videos | Hugh Deeny',
+    description: 'Watch official Hugh Deeny videos and latest visual releases.',
+  },
+  '/tour': {
+    title: 'Tour | Hugh Deeny',
+    description: 'Find upcoming Hugh Deeny live shows and tour updates.',
+  },
+};
+
+function SeoManager() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const routeSeo = seoByPath[location.pathname] || seoByPath['/'];
+    const canonicalUrl = `${siteUrl}${location.pathname === '/' ? '/' : location.pathname}`;
+
+    document.title = routeSeo.title;
+
+    const upsertMeta = (attribute, value, content) => {
+      let element = document.head.querySelector(`meta[${attribute}="${value}"]`);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, value);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    upsertMeta('name', 'description', routeSeo.description);
+    upsertMeta('property', 'og:type', 'website');
+    upsertMeta('property', 'og:site_name', 'Hugh Deeny');
+    upsertMeta('property', 'og:title', routeSeo.title);
+    upsertMeta('property', 'og:description', routeSeo.description);
+    upsertMeta('property', 'og:url', canonicalUrl);
+    upsertMeta('property', 'og:image', defaultImageUrl);
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
+    upsertMeta('name', 'twitter:title', routeSeo.title);
+    upsertMeta('name', 'twitter:description', routeSeo.description);
+    upsertMeta('name', 'twitter:image', defaultImageUrl);
+
+    let canonicalLink = document.head.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+  }, [location.pathname]);
+
+  return null;
+}
 
 function getYouTubeId(value) {
   if (!value) {
@@ -58,6 +128,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <SeoManager />
       <div className="site">
         <header className="top-nav">
           <h1 className="brand-wordmark">HUGH DEENY</h1>
@@ -80,6 +151,7 @@ function App() {
               path="/"
               element={
                 <section className="hero-page">
+                  <h2 className="visually-hidden">Official Website of Hugh Deeny</h2>
                   <img className="hero-image" src={siteContent.homeHeroImageUrl} alt={siteContent.homeHeroAlt} />
                 </section>
               }
